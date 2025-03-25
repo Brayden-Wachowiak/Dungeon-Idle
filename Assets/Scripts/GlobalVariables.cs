@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class GlobalVariables : MonoBehaviour
 {
-    private BigInteger coinBalance = 1500;
-    private BigInteger totalCoinsEarned = 1500;
+    private BigInteger coinBalance = 0;
+    private BigInteger totalCoinsEarned = 0;
 
     private int buyAmount;
     private int lastBuyAmount;  // Tracks the last buyAmount used to calculate the price
@@ -72,7 +72,7 @@ public class GlobalVariables : MonoBehaviour
         }
     }
 
-    private void AdjustAllTrapsBuyPrice()
+    public void AdjustAllTrapsBuyPrice()
     {
         // Find all Trap instances in the scene
         Trap[] allTraps = FindObjectsOfType<Trap>();

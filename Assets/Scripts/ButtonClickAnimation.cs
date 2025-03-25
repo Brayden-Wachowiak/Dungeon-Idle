@@ -2,28 +2,51 @@ using UnityEngine;
 using UnityEngine.UI;
 public class ButtonClickAnimation : MonoBehaviour
 {
-    public Sprite clickedSprite;
-    private Image buttonImage;
-    private Sprite defaultSprite;
-    private RectTransform buttonText;
-    private Vector3 originaPosition;
+    // Public Variables
+    public Sprite clickedSprite; // Sprite to display when button is clicked
+
+    // Private Variables
+    private Image buttonImage;     // Reference to the button's image component
+    private Sprite defaultSprite;  // Stores the default button sprite
+    private RectTransform buttonText; // Reference to the button's text transform
+    private Vector3 originalPosition; // Stores the original text position
+
     void Start()
     {
+        // Get references to required components
         buttonImage = GetComponent<Image>();
         buttonText = transform.Find("ButtonText")?.GetComponent<RectTransform>();
+
+        // Store the default sprite
         defaultSprite = buttonImage.sprite;
+
+        // Add click listener to button
         GetComponent<Button>().onClick.AddListener(ChangeButtonSprite);
-        originaPosition = buttonText.localPosition;
+
+        // Store the original text position
+        originalPosition = buttonText.localPosition;
     }
-    void ChangeButtonSprite()
+
+    // Private Methods
+
+    /// <summary>
+    /// Changes the button's sprite and moves the text when clicked.
+    /// </summary>
+    private void ChangeButtonSprite()
     {
-        buttonText.transform.localPosition = originaPosition + (Vector3.down * 4);
-        buttonImage.sprite = clickedSprite;
-        Invoke(nameof(ResetSprite), 0.2f); // Reset after 0.2s
+        buttonText.transform.localPosition = originalPosition + (Vector3.down * 4); // Move text down slightly
+        buttonImage.sprite = clickedSprite; // Change sprite
+
+        // Reset sprite after 0.2 seconds
+        Invoke(nameof(ResetSprite), 0.2f);
     }
-    void ResetSprite()
+
+    /// <summary>
+    /// Resets the button's sprite and text position.
+    /// </summary>
+    private void ResetSprite()
     {
-        buttonText.transform.localPosition = originaPosition;
-        buttonImage.sprite = defaultSprite;
+        buttonText.transform.localPosition = originalPosition; // Reset text position
+        buttonImage.sprite = defaultSprite; // Reset sprite to default
     }
 }

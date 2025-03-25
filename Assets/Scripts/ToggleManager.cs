@@ -17,59 +17,69 @@ public class ToggleManager : MonoBehaviour
     public Sprite toggledSprite;
     public Sprite untoggledSprite;
 
-
+    // References to the toggle text positions
     private RectTransform toggle1XText;
     private RectTransform toggle10XText;
     private RectTransform toggle100XText;
 
+    // Stores original and adjusted text positions
     private Vector3 originalPosition;
     private Vector3 positionAdjustment;
 
+    // Colors for pressed and unpressed states
     private Color pressedColor = new Color(.3803922f, 0.7372549f, 0.9058824f, 1f);
     private Color originalColor = Color.white;
 
+    // Stores the last selected toggle
     private Toggle lastSelectedToggle;
 
-    // Start is called before the first frame update
     void Start()
     {
+        // Get references to toggle text objects
         toggle1XText = transform.Find("1X/ToggleText")?.GetComponent<RectTransform>();
         toggle10XText = transform.Find("10X/ToggleText")?.GetComponent<RectTransform>();
         toggle100XText = transform.Find("100X/ToggleText")?.GetComponent<RectTransform>();
 
+        // Set text movement positions
         originalPosition = toggle1XText.localPosition;
         positionAdjustment = originalPosition + (Vector3.down * 4);
 
+        // Initialize toggle states
         toggle1X.isOn = true;
         toggle10X.isOn = false;
         toggle100X.isOn = false;
-
         lastSelectedToggle = toggle1X;
 
-        // Ensure only one toggle is active initially
+        // Add event listeners to toggles
         toggle1X.onValueChanged.AddListener(delegate { ToggleChanged(toggle1X); });
         toggle10X.onValueChanged.AddListener(delegate { ToggleChanged(toggle10X); });
         toggle100X.onValueChanged.AddListener(delegate { ToggleChanged(toggle100X); });
 
-        // Initialize the toggles state
+        // Apply initial visuals
         ToggleChanged(lastSelectedToggle);
     }
 
-    // This method is called when any of the toggles is clicked
-    void ToggleChanged(Toggle selectedToggle)
+    // Private Methods
+
+    /// <summary>
+    /// Handles toggle state changes when a toggle is clicked.
+    /// </summary>
+    private void ToggleChanged(Toggle selectedToggle)
     {
+        // Ensure at least one toggle remains on
         if (!selectedToggle.isOn)
         {
             selectedToggle.isOn = true;
             return;
         }
 
-        // Turn off the previous toggle
+        // Turn off the previously selected toggle
         if (lastSelectedToggle != null && lastSelectedToggle != selectedToggle)
         {
             lastSelectedToggle.isOn = false;
         }
 
+        // Update Global Buy Amount and visuals based on the selected toggle
         if (selectedToggle == toggle1X)
         {
             GlobalVariables.Instance.BuyAmount = 1;
@@ -92,11 +102,14 @@ public class ToggleManager : MonoBehaviour
             UpdateToggleVisuals(toggle100X, background100X, toggle100XText, true);
         }
 
-        // Store the newly selected toggle
+        // Store the currently selected toggle
         lastSelectedToggle = selectedToggle;
     }
 
-    void UpdateToggleVisuals(Toggle toggle, Image background, RectTransform text, bool isSelected)
+    /// <summary>
+    /// Updates the visuals of a toggle based on its selected state.
+    /// </summary>
+    private void UpdateToggleVisuals(Toggle toggle, Image background, RectTransform text, bool isSelected)
     {
         background.sprite = isSelected ? toggledSprite : untoggledSprite;
         background.color = isSelected ? pressedColor : originalColor;

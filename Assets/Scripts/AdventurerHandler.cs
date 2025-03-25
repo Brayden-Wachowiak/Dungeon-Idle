@@ -1,16 +1,20 @@
+using System.Numerics;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class AdventurerHandler : MonoBehaviour
+public class UIImageEventTrigger : MonoBehaviour, IPointerClickHandler
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private TrapHandler trapHandler;
+
+    public void OnPointerClick(PointerEventData eventData)
     {
-        
+        GlobalVariables.Instance.CoinBalance += 1 + (trapHandler.GetTrapProductionRate(0) * (BigInteger)trapHandler.GetTrapQuanity(0));
+        GlobalVariables.Instance.TotalCoinsEarned += 1 + (trapHandler.GetTrapProductionRate(0) * (BigInteger)trapHandler.GetTrapQuanity(0));
     }
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-        
+        // Initialize trapHandler in Start() to avoid UnityException
+        trapHandler = FindObjectOfType<TrapHandler>();
     }
 }
