@@ -1,7 +1,11 @@
+using System.Numerics;
 using UnityEngine;
 
 public class GlobalVariables : MonoBehaviour
 {
+    private BigInteger coinBalance = 1500;
+    private BigInteger totalCoinsEarned = 1500;
+
     private int buyAmount;
     private int lastBuyAmount;  // Tracks the last buyAmount used to calculate the price
 
@@ -9,6 +13,31 @@ public class GlobalVariables : MonoBehaviour
 
     // Singleton reference
     public static GlobalVariables Instance { get; private set; }
+
+
+    public BigInteger TotalCoinsEarned
+    {
+        get { return totalCoinsEarned; }
+        set
+        {
+            if (totalCoinsEarned != value)  // Only fire when the value of buyAmount changes
+            {
+                totalCoinsEarned = value;
+            }
+        }
+    }
+
+    public BigInteger CoinBalance
+    {
+        get { return coinBalance; }
+        set
+        {
+            if (coinBalance != value)  // Only fire when the value of buyAmount changes
+            {
+                coinBalance = value;
+            }
+        }
+    }
 
     public int BuyAmount
     {
