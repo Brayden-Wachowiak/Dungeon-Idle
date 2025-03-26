@@ -27,7 +27,7 @@ public class TrapHandler : MonoBehaviour
         BigInteger StartingPrice = 100;
         BigInteger StartingProductionRate = 1;
 
-        float newHeight = (nextUnlockIndex + 1) * 108 + spacer;
+        float newHeight = (nextUnlockIndex + 1) * 116 + spacer;
 
         TrapsContainer.sizeDelta = new UnityEngine.Vector2(TrapsContainer.sizeDelta.x, newHeight);
 
@@ -74,7 +74,7 @@ public class TrapHandler : MonoBehaviour
             {
                 trapList[nextUnlockIndex].SetActive(true);
 
-                float newHeight = (nextUnlockIndex + 1) * 108 + spacer;
+                float newHeight = (nextUnlockIndex + 1) * 116 + spacer;
 
                 TrapsContainer.sizeDelta = new UnityEngine.Vector2(TrapsContainer.sizeDelta.x, newHeight);
 
@@ -93,7 +93,7 @@ public class TrapHandler : MonoBehaviour
     public void CreateTrap(string name, BigInteger price, BigInteger productionRate, Sprite icon, int i)
     {
         // Set position based on index (spacing traps vertically)
-        UnityEngine.Vector3 pos = UnityEngine.Vector3.down * (108 * i);
+        UnityEngine.Vector3 pos = UnityEngine.Vector3.down * (116 * i);
 
         // Instantiate trap UI element
         GameObject trapObj = Instantiate(TrapContainer, trapParent);

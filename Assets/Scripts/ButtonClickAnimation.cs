@@ -34,7 +34,7 @@ public class ButtonClickAnimation : MonoBehaviour
     /// </summary>
     private void ChangeButtonSprite()
     {
-        buttonText.transform.localPosition = originalPosition + (Vector3.down * 4); // Move text down slightly
+        buttonText.transform.localPosition = originalPosition + (Vector3.down * 8); // Move text down slightly
         buttonImage.sprite = clickedSprite; // Change sprite
 
         // Reset sprite after 0.2 seconds

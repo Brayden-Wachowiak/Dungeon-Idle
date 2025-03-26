@@ -20,6 +20,7 @@ public class Trap : MonoBehaviour
 
     private Sprite icon;                      // Trap icon sprite
     private Image trapIcon;                   // UI Image component for trap icon
+    private Image trapIconShaow;              // UI Image component for trap icon shadow
     private Button buyButton;                 // UI Button to purchase the trap
     private TMP_Text trapNameText;            // UI Text component for trap name
     private TMP_Text quantityOfTrapText;      // UI Text component for quantity display
@@ -40,6 +41,7 @@ public class Trap : MonoBehaviour
         quantityOfTrapText = transform.Find("TrapIcon/QuantityOfTrapText")?.GetComponent<TMP_Text>();
         priceText = transform.Find("TrapNameText/CoinIcon/PriceText")?.GetComponent<TMP_Text>();
         trapIcon = transform.Find("TrapIcon")?.GetComponent<Image>();
+        trapIconShaow = transform.Find("TrapIconShadow")?.GetComponent<Image>();
         buyButton = transform.Find("BuyButton")?.GetComponent<Button>();
 
         // Add event listener for the buy button
@@ -106,6 +108,7 @@ public class Trap : MonoBehaviour
     {
         if (trapNameText) trapNameText.text = trapName;
         if (trapIcon) trapIcon.sprite = icon;
+        if (trapIconShaow) trapIconShaow.sprite = icon;
 
         UpdateUI();
     }

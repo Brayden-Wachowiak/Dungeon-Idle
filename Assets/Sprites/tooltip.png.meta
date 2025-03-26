@@ -1,10 +1,7 @@
 fileFormatVersion: 2
-guid: d4cd0d4518d60c84bb8d64094d8b2b18
+guid: 328d98ed2b7a38f449593af103428b72
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -1904714757498695409
-    second: Trap-Container_0
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -47,7 +44,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -139,12 +136,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Trap-Container_0
+      name: tooltip
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 262
+        width: 270
         height: 54
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -164,7 +161,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f7804ea3824ec3e4caa668ae56f8b35d
+    spriteID: d5403a55e42d13449ba4313bf9842b96
     internalID: 0
     vertices: []
     indices: 
@@ -174,7 +171,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Trap-Container_0: -1904714757498695409
+      tooltip: -1904714757498695409
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
