@@ -13,8 +13,8 @@ public class UIImageEventTrigger : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        GlobalVariables.Instance.CoinBalance += 1 + (trapHandler.GetTrapProductionRate(0) * (BigInteger)trapHandler.GetTrapQuanity(0));
-        GlobalVariables.Instance.TotalCoinsEarned += 1 + (trapHandler.GetTrapProductionRate(0) * (BigInteger)trapHandler.GetTrapQuanity(0));
+        GlobalVariables.Instance.CoinBalance += 1 + (trapHandler.traps[0].coinProductionRate * (BigInteger)(trapHandler.traps[0].quantity / 5));
+        GlobalVariables.Instance.TotalCoinsEarned += 1 + (trapHandler.traps[0].coinProductionRate * (BigInteger)trapHandler.traps[0].quantity);
         SpawnCoin();
     }
 
