@@ -1,10 +1,7 @@
 fileFormatVersion: 2
-guid: d4cd0d4518d60c84bb8d64094d8b2b18
+guid: 7fa76cbdd26d51a46b858ed122bffe94
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -1904714757498695409
-    second: Trap-Container_0
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,13 +136,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Trap-Container_0
+      name: Gas-Icon
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 262
-        height: 54
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,7 +161,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f7804ea3824ec3e4caa668ae56f8b35d
+    spriteID: df9a09555e36353469a769493ab92189
     internalID: 0
     vertices: []
     indices: 
@@ -174,7 +171,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Trap-Container_0: -1904714757498695409
+      Gas-Icon: -1904714757498695409
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
