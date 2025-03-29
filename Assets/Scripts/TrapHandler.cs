@@ -15,13 +15,14 @@ public class TrapHandler : MonoBehaviour
     void Start()
     {
         InitializeTraps();
-        UpdateHeight();
 
         // Lock traps beyond the initial 3
         for (int i = 3; i < traps.Count; i++)
         {
             traps[i].gameObject.SetActive(false);
         }
+
+        UpdateHeight();
     }
 
     void Update()

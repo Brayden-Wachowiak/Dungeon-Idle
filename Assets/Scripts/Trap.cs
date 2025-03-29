@@ -37,6 +37,8 @@ public class Trap : MonoBehaviour
         buyButton = transform.Find("BuyButton")?.GetComponent<Button>();
         trapName = transform.Find("TrapNameText")?.GetComponent<TMP_Text>().text;
 
+        Debug.Log(priceText.text);
+
         quantity = 0;
         coinProductionRate = 0;
         basePrice = 0;
